@@ -1,0 +1,149 @@
+<%- include('./partials/head'); %>
+  <%- include('./partials/header'); %>
+
+    <main>
+
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-interval="8000">
+            <img src="/images/slide-1.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block ">
+              <h1>Desconto fidelidade de até 20% para universitários</h1>
+
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="8000">
+            <img src="/images/slide-2.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block ">
+              <h1>Desconto fidelidade de até 20% para universitários</h1>
+
+            </div>
+          </div>
+          <div class="carousel-item" data-interval="8000">
+            <img src="/images/slide-3.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block ">
+              <h1>Desconto fidelidade de até 20% para universitários</h1>
+
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden"></span>
+        </a>
+      </div>
+
+      <section>
+
+        <div class="temas">
+          <h1>Temas</h1>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+
+              <% themes.forEach(theme =>{%>
+                <div class="col-12 col-sm-6 col-md-3">
+                  <a href="/section/themes/<%= theme.id %> ">
+                      <img src="<%= theme.imgPaths %>" class="box">
+                      <h1> <%= theme.theme %>  </h1>
+                  </a>
+                </div>
+
+              <% }) %>
+
+            </div>
+        </div>
+
+      </section>
+
+      <section>
+
+        <div class="promocao">
+          <h1>Promoções</h1>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+              <% 
+                sales.forEach(book => {%>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-product">
+                        <div class="product-thumb">
+                            <img src="<%= book.imgPath %> " alt="">
+                        </div>
+                        <div class="product-title">
+                            <h3><a href="/products/book/<%= book.id %>"><%= book.title %></a></h3>
+                        </div>
+                        <div class="product-btns">
+                            <a href="#" class="btn-small mr-2"> <%= book.price %>  </a>
+                            <% if(typeof user != 'undefined'){%>
+
+                              <a href="/favorites/create/<%= book.id %>  " class="btn-round"><i class="fa fa-heart"></i></a>
+                              <a href="/cart/create/<%= book.id %>/<%= book.price %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                              <%}else{%>
+                                  <a href="/users/login" class="btn-round"><i class="fa fa-heart"></i></a>
+                                  <a href="/users/login %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                              <%}%>
+                        </div>
+                    </div>
+                </div>
+            <% })%>
+
+            </div>
+        </div>
+
+      </section>
+
+      <section>
+
+        <div class="vistos">
+          <h1>Mais vistos</h1>
+        </div>
+
+        <div class="container-fluid">
+            
+              <div class="row">
+
+                <% 
+                mosts.forEach(book => {%>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-product">
+                        <div class="product-thumb">
+                            <img src="<%= book.imgPath %> " alt="">
+                        </div>
+                        <div class="product-title">
+                            <h3><a href="/products/book/<%= book.id %>"><%= book.title %></a></h3>
+                        </div>
+                        <div class="product-btns">
+                            <a href="#" class="btn-small mr-2"> <%= book.price %>  </a>
+                            
+                            
+                            <% if(typeof user != 'undefined'){%>
+
+                            <a href="/favorites/create/<%= book.id %>  " class="btn-round"><i class="fa fa-heart"></i></a>
+                            <a href="/cart/create/<%= book.id %>/<%= book.price %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <%}else{%>
+                                <a href="/users/login" class="btn-round"><i class="fa fa-heart"></i></a>
+                                <a href="/users/login %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                            <%}%>
+                        </div>
+                    </div>
+                </div>
+            <% })%>
+  
+              </div>
+        </div>
+        
+      </section>
+
+    </main>
+
+    <%- include('./partials/footer'); %>
+      </body>
+
+      </html>

@@ -1,0 +1,69 @@
+<body>
+
+  <header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand navbar-link-logo" href="#"><img src="/images/logo.PNG" alt="" class="navbar-logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto topnav navbar-list">
+              <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item navbar-products flex-grow-1"><!--  -->
+                  <a class="nav-link" href="/section/produtos">Produtos</a>
+              </li>
+             
+              <form action="/section/search" method="GET" class="d-flex flex-grow-1 navbar-search">
+                <input class="form-control navbar-search-input" type="text"
+                name="word"
+                placeholder="Pesquisar" aria-label="Search"   
+                >
+                <button class="btn btn-outline-success navbar-search-button" type="submit"><i class="fas fa-search "></i></button>
+              </form>
+             
+          </ul>
+
+        <div class="navbar-icons">
+
+        <% if (typeof user != "undefined") {%>
+          
+          <a href="" class="navbar-icons-login">
+            <img src="/images/user-login.svg" alt="">
+            <span>Olá, <%= user.name %>.<a href="/users/logout" class="ml-0 sair">Sair</a></span>
+          </a>
+        <% } else {%>   
+          <a href="/users/login" class="navbar-icons-login">
+            <img src="/images/user-login.svg" alt="">
+            <span>Entre ou cadastre-se</span>
+          </a>
+        <% } %>   
+
+          <section class="navbar-icons-section">
+            <% if(typeof user != 'undefined') {%> 
+            <a href="/favorites/index/<%= user.id %>" >
+              <i class="fas fa-heart navbar-favorite"></i>
+            </a>
+            <a href="/cart/<%= user.id %>">
+              <i class="fas fa-shopping-cart navbar-shopping-cart"></i>
+            </a>
+         <% }else {%>
+          <a href="/users/login">
+            <i class="fas fa-heart navbar-favorite"></i>
+          </a>
+          <a href="/users/login">
+            <i class="fas fa-shopping-cart navbar-shopping-cart"></i>
+          </a>
+        <% } %>
+           <!--  <a href="/cart">
+              <i class="fas fa-shopping-cart navbar-shopping-cart"></i>
+            </a> -->
+          </section>
+
+
+        </div>                
+      </div>
+  </nav>
+</header>

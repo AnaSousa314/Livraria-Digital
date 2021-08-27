@@ -1,0 +1,110 @@
+<%- include('./partials/head'); %>
+    <%- include('./partials/header'); %>
+
+        <section class="section-bg">
+            <div class="section">
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section-title">
+                            <h2>Produtos</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                
+                    <% if(typeof themesAll != 'undefined'){
+                        books.forEach(book => {%>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-product">
+                                <div class="product-thumb">
+                                    <img src="<%= book.imgPath %> " alt="">
+                                </div>
+                                <div class="product-title">
+                                    <h3><a href="/products/book/<%= book.id %>"><%= book.title %></a></h3>
+                                </div>
+                                <div class="product-btns">
+                                    <a href="#" class="btn-small mr-2"> <%= book.price %>  </a>
+                                    
+                                    <% if(typeof user != 'undefined'){%>
+
+                                    <a href="/favorites/create/<%= book.id %>  " class="btn-round"><i class="fa fa-heart"></i></a>
+
+                                    <a href="/cart/create/<%= book.id %>/<%= book.price %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                    <%}else{%>
+                                        <a href="/users/login" class="btn-round"><i class="fa fa-heart"></i></a>
+                                        <a href="/users/login" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    <% })}%>
+                    
+                    <% if(typeof theme != 'undefined'){
+                        theme.forEach(item => {%>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-product">
+                                <div class="product-thumb">
+                                    <img src="<%= item.imgPath %> " alt="">
+                                </div>
+                                <div class="product-title">
+                                    <h3><a href="/products/book/<%= item.id %>"><%= item.title %></a></h3>
+                                </div>
+                                <div class="product-btns">
+                                    <a href="#" class="btn-small mr-2"> <%= item.price %>  </a>
+                                    <% if(typeof user != 'undefined'){%>
+
+                                        <a href="/favorites/create/<%= item.id %>  " class="btn-round"><i class="fa fa-heart"></i></a>
+
+                                        <a href="/cart/create/<%= item.id %>/<%= item.price %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                        <%}else{%>
+                                            <a href="/users/login" class="btn-round"><i class="fa fa-heart"></i></a>
+                                            <a href="/users/login" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                        <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    <% })}%>
+
+                    <% if(typeof search != 'undefined'){
+                        books.forEach(item => {%>
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div class="single-product">
+                                <div class="product-thumb">
+                                    <img src="<%= item.imgPath %> " alt="">
+                                </div>
+                                <div class="product-title">
+                                    <h3><a href="/products/book/<%= item.id %>"><%= item.title %></a></h3>
+                                </div>
+                                <div class="product-btns">
+                                    <a href="#" class="btn-small mr-2"> <%= item.price %>  </a>
+                                    <% if(typeof user != 'undefined'){%>
+
+                                        <a href="/favorites/create/<%= item.id %>  " class="btn-round"><i class="fa fa-heart"></i></a>
+
+                                        <a href="/cart/create/<%= item.id %>/<%= item.price %>" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                        <%}else{%>
+                                            <a href="/users/login" class="btn-round"><i class="fa fa-heart"></i></a>
+                                            <a href="/users/login" class="btn-round mr-2"><i class="fa fa-shopping-cart"></i></a>
+                                        <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    <% })}%>
+                   
+                </div>
+
+             <!--   <div class="row button-center">
+                    <div class="col-xl-6 centered">
+                        <a href="#" class="bttn-def"><span>Mostrar +</span></a>
+                    </div>
+                </div>
+            -->
+            </div>
+        </section>
+
+        <%- include('./partials/footer'); %>
+</body>
+
+</html>

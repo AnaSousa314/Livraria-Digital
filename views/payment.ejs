@@ -1,0 +1,511 @@
+<%- include('./partials/head'); %>
+  <%- include('./partials/header'); %>
+
+   <!--  <main class="container-fluid">
+        <section  id="create">
+            <div class="payment">
+                <div class="py-5 text-center">
+                    <img src="/images/pay.png" alt="logo" width="200" height="200">
+                    <h2 class="lead">Formulario de Pagamento</h2>
+                </div>
+            </div>
+
+            <div class="payment">
+                <h4 class="mb-3">Endereço de cobrança</h4>
+                <form novalidate >
+                    <div class="row g-3">
+                       <div class="col-12">
+                        <label for="firstName" class="form-label">Primeiro Nome</label>
+                        <input id="firstName" type="text" class="form-control" required placeholder="Will" required>
+                                               </div>
+                       <div class="col-sm-6">
+                        <label for="lastName" class="form-label">Sobrenome</label>
+                        <input id="lastName" type="text" class="form-control" placeholder="Smith" required>
+                        <div class="invalid-feedback">
+                            O Sobrenome é obrigatório
+                        </div>
+                       </div>
+                       <div class="col-md-5">
+                        <label for="coutry" class="form-label">Pais</label>
+                            <select id="country" 
+                            class="form-control">
+                            <option value="">Selecionar...</option>
+                            <option value="Brazil">Brasil</option>
+                            </select>
+                            <div class="invalid-feedback">
+                            O primeiro nome é obrigatório
+                            </div>
+                       </div>
+                       <div class="col-md-4">
+                        <label for="state" class="form-label">Estado</label>
+                            <select id="state" 
+                            class="form-control">
+                            <option value="">Selecionar...</option>
+                            <option value="Brazil">São Paulo</option>
+                            </select>
+                            <div class="invalid-feedback">
+                            O primeiro nome é obrigatório
+                            </div>
+                       </div>
+                       <div class="col-md-3">
+                        <label for="postcode" class="form-label">CEP</label>
+                        <input id="postcode" type="number" class="form-control" placeholder="1234" required>
+                            <div class="invalid-feedback">
+                                O primeiro nome é obrigatório
+                            </div>
+                       </div>
+
+                
+                       <hr class="my-4">
+
+                       <div class="col-12">
+                            <div class="form-check">
+                                <input id="sameAddress" type="checkbox" class="form-check-input">
+                                <label class="form-check-label" for="sameAddress">O endereço de entrega é o mesmo que o de cobrança</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="sameAddress" type="checkbox" class="form-check-input">
+                                <label class="form-check-label" for="sameAddress">Salva esta informação para a próxima compra</label>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">Pagamentos</h4>
+
+                        <div class="form-check">
+                            <input id="creditCard" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                            <label for="creditCard">Cartão de Crédito</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input id="debitCard" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                            <label for="debitCard">Cartão de Débito</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input id="boleto" name="paymentMethod" type="radio" class="form-check-input" checked required>
+                            <label for="boleto">Boleto</label>
+                        </div>
+
+                        <div class="row my-3 gy-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label">
+                                    Nome no cartão
+                                </label>
+                                <input id="fullName"type="text" class="form-control">
+                                <small class="text-muted">
+                                    Nome completo conforme exibido no cartão 
+                                </small>
+                                <div class="invalid-feedback">
+                                    O nome do cartão é obrigatório
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">
+                                    Número do Cartão de Crédito
+                                </label>
+                                <input id="cc-number"type="text" class="form-control">
+                                <div class="invalid-feedback">
+                                    O número do cartão é obrigatório
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cc-expire" class="form-label">
+                                    Vencimento
+                                </label>
+                                <input id="cc-expire"type="text" class="form-control">
+                                <div class="invalid-feedback">
+                                    Data de Vencimento é obrigatório
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cc-cvv" class="form-label">
+                                    CVV
+                                </label>
+                                <input id="cc-cvv"type="text" class="form-control">
+                                <div class="invalid-feedback">
+                                    Códido de segurança é obrigatório
+                                </div>
+                            </div>
+                        </div>
+
+                        <section class="shoopcart">
+                            <div class="col-md-4 order-md-2 mb-5 " >
+          
+
+                                <h4 class="d-flex justify-content align-items-center mb-3">
+                                    <span class="text-muted">Suas Compras</span>
+                                     </h4>
+                                <ul class="list-group mb-3 sticky-top">
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                        <div>
+                                            <h6 class="my-0">Livro1</h6>
+                                            
+                                        </div>
+                                        <span class="text-muted">$12</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                        <div>
+                                            <h6 class="my-0">Livro2</h6>
+                                           
+                                        </div>
+                                        <span class="text-muted">$8</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                        <div>
+                                            <h6 class="my-0">Livro3</h6>
+                                            
+                                        </div>
+                                        <span class="text-muted">$5</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between bg-light">
+                                        <div class="text-success">
+                                            <h6 class="my-0">Código promoção</h6>
+                                            <small>SSA10</small>
+                                        </div>
+                                        <span class="text-success">-$5</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <span>Total (R$)</span>
+                                        <strong>$20</strong>
+                                    </li>
+                                </ul>
+                                <form class="card p-2">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Promo code">
+                                        <div class="input-group-append">
+                                         
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                        </section>
+
+                        <hr class="my-4">
+                        <div class="col-lg-4 offset-lg-4">
+                            <div class="checkout">
+                              <a href="/concluded" class="proceed-btn">Continue para finalizar a compra </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main> -->
+
+
+
+<!-- <div class="container_1">
+  
+  <div class="row">
+  
+      <div class="col-md-4 order-md-2 mb-5 " >
+          
+
+          <h4 class="d-flex justify-content align-items-center mb-3">
+              <span class="text-muted">Suas Compras</span>
+               </h4>
+          <ul class="list-group mb-3 sticky-top">
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                      <h6 class="my-0">Livro1</h6>
+                      
+                  </div>
+                  <span class="text-muted">$12</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                      <h6 class="my-0">Livro2</h6>
+                     
+                  </div>
+                  <span class="text-muted">$8</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                      <h6 class="my-0">Livro3</h6>
+                      
+                  </div>
+                  <span class="text-muted">$5</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                      <h6 class="my-0">Código promoção</h6>
+                      <small>SSA10</small>
+                  </div>
+                  <span class="text-success">-$5</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (R$)</span>
+                  <strong>$20</strong>
+              </li>
+          </ul>
+          <form class="card p-2">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code">
+                  <div class="input-group-append">
+                   
+                  </div>
+              </div>
+          </form>
+      </div>
+      
+    
+
+      <div class="col-md-8 order-md-1">
+         
+         
+          
+           
+              <div class="row justify-content-start">
+                <h4 class="mb-2">Dados da entrega</h4>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label"></label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                </div>
+                
+               
+
+                      <div class="button1">
+                      <div class="col-md-12 mb-3">
+                      <a href="#" class="btn btn-info">Alterar Endereço de entrega</a>
+                   </div>
+                      </div>
+
+                   <div class="col-md-12 mb-3">
+                    <div class="btn-group">
+                  <a href="#" class="btn btn-info">Enviar informações via whatsapp</a>
+                 </div>
+
+                  </div>
+
+                  </div>
+              </div>
+
+             
+              <div class="d-flex justify-content-center">
+            <div class="pagamento">               
+              <hr class="mb-4">              
+              <h4 class="mb-3">pagamento</h4>
+              <div class="d-block my-3">
+                
+                
+                       <div class="custom-control custom-radio" >
+                      <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                      <label class="custom-control-label" for="credit">Cartão de débito</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                      <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                      <label class="custom-control-label" for="debit">Cartão de Crédito</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                      <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                      <label class="custom-control-label" for="paypal">PayPal</label>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4 mb-3">
+                   
+                      <label for="cc-name">Nome no Cartão</label>
+                      <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                      <small class="text-muted">Nome igual ao escrito no Cartão</small>
+                      <div class="invalid-feedback"> nome do cartão obrigatório </div>
+                  </div>
+                  
+                  <div class="col-md-4 mb-3">
+                      <label for="cc-number"> Número do cartão</label>
+                      <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                      <div class="invalid-feedback"> número é obrigatório </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-3 mb-3">
+                      <label for="cc-expiration">Validade</label>
+                      <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+                      <div class="invalid-feedback"> Expiration date required </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                      <label for="cc-cvv">CVV</label>
+                      <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+                      <div class="invalid-feedback"> Número de segurança obrigatório</div>
+                  </div>
+              </div>
+              
+              <hr class="mb-4">
+              <div class="d-flex justify-content-center">
+              <button class="btn btn-info btn-lg btn-block" type="submit">Continuar</button>
+              </div>
+          
+      </div>
+  </div>
+ </div>
+ </div>
+  -->
+
+  <main>
+    <div class="text-center">
+        <img src="/images/pay.png" alt="logo" width="200" height="200">
+        <h2 class="lead">Formulario de Pagamento</h2>
+    </div>
+
+    <!-- <form action="/concluded" class="pay" method="POST"> -->
+        <section class="pay">
+        <div class="address">
+            <section class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" name="name" id="name" class="form-control"  placeholder="Seu nome completo">
+             
+            </section>
+            <section class="form-group">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep" class="form-control"  placeholder="EX.: 123456">
+              
+            </section>
+            <section class="form-group">
+                <label for="street">Endereço</label>
+                <input type="text" name="street" id="street" class="form-control"  placeholder="Endereço">
+              
+            </section>
+            <section class="form-group">
+                <label for="number">Número da residência</label>
+                <input type="text" name="number" id="number" class="form-control"  placeholder="número ">
+               
+            </section>
+            <section class="form-group">
+                <label for="complement">Complemento</label>
+                <input type="text" name="complement" id="complement" class="form-control"  placeholder="Apartamento, andar, caixa postal...">
+            </section>
+            <section class="form-group">
+                <label for="reference">Referência</label>
+                <input type="text" name="reference" id="reference" class="form-control"  placeholder="Ponto de referência">
+            </section>
+            <section class="form-group">
+                <label for="district">Bairro</label>
+                <input type="text" name="district" id="district" class="form-control">
+                <div class="invalid-feedback">
+                    O bairro é obrigatório
+                </div>
+            </section>
+            <section class="form-group">
+                <label for="city">Cidade</label>
+                <input type="text" name="city" id="city" class="form-control">
+                <div class="invalid-feedback">
+                    O cidade é obrigatório
+                </div>
+            </section>
+            <section class="form-group">
+                <label for="state">Estado</label>
+                <input type="text" name="state" id="state" class="form-control">
+                <div class="invalid-feedback">
+                    O estado é obrigatório
+                </div>
+            </section>
+        </div>
+
+        <hr class="my-4">
+
+        <div>
+            <h4 class="mb-3">Pagamentos</h4>
+
+                        <div class="form-check">
+                            <input id="creditCard" name="paymentMethod" type="radio" class="form-check-input" checked >
+                            <label for="creditCard">Cartão de Crédito</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input id="boleto" name="paymentMethod" type="radio" class="form-check-input" checked >
+                            <label for="boleto">Boleto</label>
+                        </div>
+
+                        <div class="row my-3 gy-3">
+                            <div class="col-md-6">
+                                <label for="nameCard" class="form-label">
+                                    Nome no cartão
+                                </label>
+                                <input name="nameCard" id="nameCard"type="text" class="form-control" placeholder="Nome completo conforme exibido no cartão">
+                               <!--  <small class="text-muted">
+                                    Nome completo conforme exibido no cartão 
+                                </small> -->
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <label for="numberCard" class="form-label">
+                                    Número do Cartão de Crédito
+                                </label>
+                                <input name="numberCard" id="numberCard"type="text" class="form-control">
+                                
+                            </div>
+                            <div class="col-md-3">
+                                <label for="expiration" class="form-label">
+                                    Vencimento
+                                </label>
+                                <input name="expiration" id="expiration"type="text" class="form-control">
+                                
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cvv" class="form-label">
+                                    CVV
+                                </label>
+                                <input name="cvv" id="cvv"type="text" class="form-control">
+                                
+                            </div>
+                        </div>
+        </div>
+
+        <hr class="">
+
+        <section class="shoopcart">
+            <div class="col-md-4 order-md-2 mb-5 " >
+                <h4 class="d-flex justify-content align-items-center mb-3">
+                    <span class="text-muted">Suas Compras</span>
+                     </h4>
+                <ul class="list-group mb-3 sticky-top">
+
+                    <% data.forEach(item=>{%>
+
+                   
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0"><%= item.title %> </h6>
+                            
+                        </div>
+                        <span class="text-muted tots"></span>
+                    </li>
+                    <%  }) %>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total (R$)</span>
+                        <strong id="pagar"></strong>
+                    </li>
+                </ul>
+            </div>
+            
+        </section>
+
+        <hr class="my-4">
+            <div class="col-lg-4 offset-lg-4">
+                <div class="checkout">
+                    <a href="/concluded"><button  class="proceed-btn">Continue para finalizar a compra</button></a>
+                </div>
+            </div>
+        </section>
+    <!-- </form> -->
+    
+  </main>
+
+              <%- include('./partials/footer'); %>
+
+
+              <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+  
+              <!-- <script src="form-validation.js"></script> -->
+
+              <script src="/javascripts/main.js"></script>
+              <script src="/javascripts/payment.js"></script>
+</body>
+
+</html>
+        
+        
+        
